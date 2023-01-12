@@ -1,0 +1,11 @@
+## Interface: 100002
+## Title: Battleground Stat History
+## Notes: Keep track of battleground game history.
+## Author: Ruinsaken / Jerry
+## savedVariables: TotalHordeWins, TotalAllianceWins, TotalStats, Battlegrounds
+## savedVariablesPerCharacter: HordeWins, AllianceWins, CharacterStats
+
+Battleground-Stat-History.lua
+Stats-GUI.lua
+LibStub.lua
+AceGUI-3.0.lua

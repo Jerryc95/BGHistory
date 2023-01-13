@@ -6,12 +6,7 @@ f:RegisterEvent("PLAYER_STARTED_MOVING")
 f:SetScript("OnEvent", function(self, event, arg1)
 	if (event == "ADDON_LOADED" and arg1 == "Battleground-Stat-History") then
 		print("bg history loaded")
-		local AceGUI = LibStub("AceGUI-3.0")
-        local frame = AceGUI:Create("Frame")
-
-        frame:SetTitle("Battleground Stat History")
-        frame:SetStatusText("See history of each teams wins")
-
+		
 		if(TotalStats == nil) then
 			TotalStats = {}
 			TotalStats.WSGHordeWins = 0

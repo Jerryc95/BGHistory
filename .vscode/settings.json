@@ -1,5 +1,18 @@
 {
     "Lua.diagnostics.disable": [
         "param-type-mismatch"
+    ],
+    "Lua.diagnostics.globals": [
+        "SlashCmdList",
+        "UIDropDownMenu_Initialize",
+        "UIDropDownMenu_SetWidth",
+        "UIDropDownMenu_SetButtonWidth",
+        "UIDropDownMenu_SetSelectedID",
+        "UIDropDownMenu_JustifyText",
+        "FACTION_ALLIANCE",
+        "FACTION_HORDE",
+        "HIGHLIGHT_FONT_COLOR",
+        "NORMAL_FONT_COLOR",
+        "CLOSE"
     ]
 }

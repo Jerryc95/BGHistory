@@ -2,5 +2,6 @@ BGHistory = {
     loaded = false,
     UI = {},
     AccountDB = {},
-    CharDB = {}
+    CharDB = {},
+    BGCompleteHandler = {}
 }

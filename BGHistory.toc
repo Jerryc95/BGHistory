@@ -3,13 +3,13 @@
 ## Notes: Keep track of battleground game history.
 ## Author: Ruinsaken / Jerry
 ## Version 1.0
-## savedVariables: BGHistory.AccountDB
-## savedVariablesPerCharacter: BGHistory.CharDB
+## savedVariables: BGHistoryAccountDB
+## savedVariablesPerCharacter: BGHistoryCharDB
 
-BGCompleteHandler.lua
 BGHistory.lua
+BGHistoryAccountDB.lua
+BGHistoryCharDB.lua
+BGCompleteHandler.lua
 MainFrame.lua
 BGFrame.lua
 HistoryFrame.lua
-BGInfoHandler.lua
-

@@ -13,6 +13,7 @@
         "FACTION_HORDE",
         "HIGHLIGHT_FONT_COLOR",
         "NORMAL_FONT_COLOR",
-        "CLOSE"
+        "CLOSE",
+        "PLAYER"
     ]
 }

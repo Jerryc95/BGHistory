@@ -19,7 +19,7 @@ local function getBattleground()
     return battlegroundName
 end
 
-function BGHistory.BGCompleteHandler:handleBGComplete(winner, duration)
+function handler:handleBGComplete(winner, duration)
     local battleground = getBattleground()
     print(battleground)
     print(winner)

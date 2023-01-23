@@ -1,7 +1,6 @@
 local UI = BGHistory.UI
 local eventHandler = BGHistory.BGCompleteHandler
-local accountDB = BGHistory.AccountDB
-local charDB = BGHistory.CharDB
+
 
 UI.mainFrame = CreateFrame("Frame", "BGHistoryMainFrame", UIParent, "TooltipBorderedFrameTemplate")
 
@@ -25,141 +24,133 @@ local function getBattleground()
     return battlegroundName
 end
 
+
 -- Add to DB
+local function updateScore(accountScore, characterScore)
+    accountScore = accountScore + 1
+    characterScore = characterScore + 1
+end
+
 local function updateDB(battleground, winner)
     print(battleground)
     print(winner)
-    local score 
-    if(battleground == "Warsong Gulch" and winner == 0) then
-        BGHistory.AccountDB.Warsong.Horde = BGHistory.AccountDB.Warsong.Horde + 1
-        BGHistory.CharDB.Warsong.Horde = BGHistory.CharDB.Warsong.Horde + 1
-        score = BGHistory.CharDB.Warsong.Horde
-        print("The", winner, "have won", battleground, score "times now!")
-    elseif (battleground == "Warsong Gulch" and winner == 1) then
-        BGHistory.AccountDB.Warsong.Alliance = BGHistory.AccountDB.Warsong.Alliance + 1
-        BGHistory.CharDB.Warsong.Alliance = BGHistory.CharDB.Warsong.Alliance + 1
-        score = BGHistory.CharDB.Warsong.Alliance
-        print("The", winner, "have won", battleground, score "times now!")
-    elseif (battleground == "Arathi Basin" and winner == 0) then
-        BGHistory.AccountDB.ArathiBasin.Horde = BGHistory.AccountDB.ArathiBasin.Horde + 1
-        BGHistory.CharDB.ArathiBasin.Horde = BGHistory.CharDB.ArathiBasin.Horde + 1
-        score = BGHistory.CharDB.ArathiBasin.Horde
-        print("The", winner, "have won", battleground, score "times now!")
-    elseif (battleground == "Arathi Basin" and winner == 1) then
-        BGHistory.AccountDB.ArathiBasin.Alliance = BGHistory.AccountDB.ArathiBasin.Alliance + 1
-        BGHistory.CharDB.ArathiBasin.Alliance = BGHistory.CharDB.ArathiBasin.Alliance + 1
-        score = BGHistory.CharDB.ArathiBasin.Alliance
-        print("The", winner, "have won", battleground, score "times now!")
-    elseif (battleground == "Alterac Valley" and winner == 0) then
-        BGHistory.AccountDB.AlteracValley.Horde = BGHistory.AccountDB.AlteracValley.Horde + 1
-        BGHistory.CharDB.AlteracValley.Horde = BGHistory.CharDB.AlteracValley.Horde + 1
-        score = BGHistory.CharDB.AlteracValley.Horde
-        print("The", winner, "have won", battleground, score "times now!")
-    elseif (battleground == "Alterac Valley" and winner == 1) then
-        BGHistory.AccountDB.AlteracValley.Alliance = BGHistory.AccountDB.AlteracValley.Alliance + 1
-        BGHistory.CharDB.AlteracValley.Alliance = BGHistory.CharDB.AlteracValley.Alliance + 1
-        score = BGHistory.CharDB.AlteracValley.Alliance
-        print("The", winner, "have won", battleground, score "times now!")
-    elseif (battleground == "Eye of the Storm" and winner == 0) then
-        BGHistory.AccountDB.EyeOfTheStorm.Horde = BGHistory.AccountDB.EyeOfTheStorm.Horde + 1
-        BGHistory.CharDB.EyeOfTheStorm.Horde = BGHistory.CharDB.EyeOfTheStorm.Horde + 1
-        score = BGHistory.CharDB.EyeOfTheStorm.Horde
-        print("The", winner, "have won", battleground, score "times now!")
-    elseif (battleground == "Eye of the Storm" and winner == 1) then
-        BGHistory.AccountDB.EyeOfTheStorm.Alliance = BGHistory.AccountDB.EyeOfTheStorm.Alliance + 1
-        BGHistory.CharDB.EyeOfTheStorm.Alliance = BGHistory.CharDB.EyeOfTheStorm.Alliance + 1
-        score = BGHistory.CharDB.EyeOfTheStorm.Alliance
-        print("The", winner, "have won", battleground, score "times now!")
-    elseif (battleground == "Isle of Conquest" and winner == 0) then
-        BGHistory.AccountDB.IsleOfConquest.Horde = BGHistory.AccountDB.IsleOfConquest.Horde + 1
-        BGHistory.CharDB.IsleOfConquest.Horde = BGHistory.CharDB.IsleOfConquest.Horde + 1
-        score = BGHistory.CharDB.IsleOfConquest.Horde
-        print("The", winner, "have won", battleground, score "times now!")
-    elseif (battleground == "Isle of Conquest" and winner == 1) then
-        BGHistory.AccountDB.IsleOfConquest.Alliance = BGHistory.AccountDB.IsleOfConquest.Alliance + 1
-        BGHistory.CharDB.IsleOfConquest.Alliance = BGHistory.CharDB.IsleOfConquest.Alliance + 1
-        score =  BGHistory.CharDB.IsleOfConquest.Alliance
-        print("The", winner, "have won", battleground, score "times now!")
-    elseif (battleground == "The Battle for Gilneas" and winner == 0) then
-        BGHistory.AccountDB.BattleForGilneas.Horde = BGHistory.AccountDB.BattleForGilneas.Horde + 1
-        BGHistory.CharDB.BattleForGilneas.Horde = BGHistory.CharDB.BattleForGilneas.Horde + 1
-        score = BGHistory.CharDB.BattleForGilneas.Horde
-        print("The", winner, "have won", battleground, score "times now!")
-    elseif (battleground == "The Battle for Gilneas" and winner == 1) then
-        BGHistory.AccountDB.BattleForGilneas.Alliance = BGHistory.AccountDB.BattleForGilneas.Alliance + 1
-        BGHistory.CharDB.BattleForGilneas.Alliance = BGHistory.CharDB.BattleForGilneas.Alliance + 1
-        score = BGHistory.CharDB.BattleForGilneas.Alliance
-        print("The", winner, "have won", battleground, score "times now!")
-    elseif (battleground == "Battle for Wintergrasp" and winner == 0) then
-        BGHistory.AccountDB.BattleForWintergrasp.Horde = BGHistory.AccountDB.BattleForWintergrasp.Horde + 1
-        BGHistory.CharDB.BattleForWintergrasp.Horde = BGHistory.CharDB.BattleForWintergrasp.Horde + 1
-        score = BGHistory.CharDB.BattleForWintergrasp.Horde
-        print("The", winner, "have won", battleground, score "times now!")
-    elseif (battleground == "Battle for Wintergrasp" and winner == 1) then
-        BGHistory.AccountDB.BattleForWintergrasp.Alliance = BGHistory.AccountDB.BattleForWintergrasp.Alliance + 1
-        BGHistory.CharDB.BattleForWintergrasp.Alliance = BGHistory.CharDB.BattleForWintergrasp.Alliance + 1
-        score = BGHistory.CharDB.BattleForWintergrasp.Alliance
-        print("The", winner, "have won", battleground, score "times now!")
-    elseif (battleground == "Ashran" and winner == 0) then
-        BGHistory.AccountDB.Ashran.Horde = BGHistory.AccountDB.Ashran.Horde + 1
-        BGHistory.CharDB.Ashran.Horde = BGHistory.CharDB.Ashran.Horde + 1
-        score =  BGHistory.CharDB.Ashran.Horde
-        print("The", winner, "have won", battleground, score "times now!")
-    elseif (battleground == "Ashran" and winner == 1) then
-        BGHistory.AccountDB.Ashran.Alliance = BGHistory.AccountDB.Ashran.Alliance + 1
-        BGHistory.CharDB.Ashran.Alliance = BGHistory.CharDB.Ashran.Alliance + 1
-        score = BGHistory.CharDB.Ashran.Alliance
-        print("The", winner, "have won", battleground, score "times now!")
-    elseif (battleground == "Twin Peaks" and winner == 0) then
-        BGHistory.AccountDB.TwinPeaks.Horde = BGHistory.AccountDB.TwinPeaks.Horde + 1
-        BGHistory.CharDB.TwinPeaks.Horde = BGHistory.CharDB.TwinPeaks.Horde + 1
-        score = BGHistory.CharDB.TwinPeaks.Horde
-        print("The", winner, "have won", battleground, score "times now!")
-    elseif (battleground == "Twin Peaks" and winner == 1) then
-        BGHistory.AccountDB.TwinPeaks.Alliance = BGHistory.AccountDB.TwinPeaks.Alliance + 1
-        BGHistory.CharDB.TwinPeaks.Alliance = BGHistory.CharDB.TwinPeaks.Alliance + 1
-        score = BGHistory.CharDB.TwinPeaks.Alliance
-        print("The", winner, "have won", battleground, score "times now!")
-    elseif (battleground == "Silvershard Mines" and winner == 0) then
-        BGHistory.AccountDB.SilvershardMines.Horde = BGHistory.AccountDB.SilvershardMines.Horde + 1
-        BGHistory.CharDB.SilvershardMines.Horde = BGHistory.CharDB.SilvershardMines.Horde + 1
-        score = BGHistory.CharDB.SilvershardMines.Horde
-        print("The", winner, "have won", battleground, score "times now!")
-    elseif (battleground == "Silvershard Mines" and winner == 1) then
-        BGHistory.AccountDB.SilvershardMines.Alliance = BGHistory.AccountDB.SilvershardMines.Alliance + 1
-        BGHistory.CharDB.SilvershardMines.Alliance = BGHistory.CharDB.SilvershardMines.Alliance + 1
-        score = BGHistory.CharDB.SilvershardMines.Alliance
-        print("The", winner, "have won", battleground, score "times now!")
-    elseif (battleground == "Temple of Kotmogu" and winner == 0) then
-        BGHistory.AccountDB.TempleOfKotmogu.Horde = BGHistory.AccountDB.TempleOfKotmogu.Horde + 1
-        BGHistory.CharDB.TempleOfKotmogu.Horde = BGHistory.CharDB.TempleOfKotmogu.Horde + 1
-        score = BGHistory.CharDB.TempleOfKotmogu.Horde
-        print("The", winner, "have won", battleground, score "times now!")
-    elseif (battleground == "Temple of Kotmogu" and winner == 1) then
-        BGHistory.AccountDB.TempleOfKotmogu.Alliance = BGHistory.AccountDB.TempleOfKotmogu.Alliance + 1
-        BGHistory.CharDB.TempleOfKotmogu.Alliance = BGHistory.CharDB.TempleOfKotmogu.Alliance + 1
-        score = BGHistory.CharDB.TempleOfKotmogu.Alliance
-        print("The", winner, "have won", battleground, score "times now!")
-    elseif (battleground == "Seething Shore" and winner == 0) then
-        BGHistory.AccountDB.SeethingShore.Horde = BGHistory.AccountDB.SeethingShore.Horde + 1
-        BGHistory.CharDB.SeethingShore.Horde = BGHistory.CharDB.SeethingShore.Horde + 1
-        score = BGHistory.CharDB.SeethingShore.Horde
-        print("The", winner, "have won", battleground, score "times now!")
-    elseif (battleground == "Seething Shore" and winner == 1) then
-        BGHistory.AccountDB.SeethingShore.Alliance = BGHistory.AccountDB.SeethingShore.Alliance + 1
-        BGHistory.CharDB.SeethingShore.Alliance = BGHistory.CharDB.SeethingShore.Alliance + 1
-        score = BGHistory.CharDB.SeethingShore.Alliance
-        print("The", winner, "have won", battleground, score "times now!")
-    elseif (battleground == "Deepwind Gorge" and winner == 0) then
-        BGHistory.AccountDB.DeepwindGorge.Horde = BGHistory.AccountDB.DeepwindGorge.Horde + 1
-        BGHistory.CharDB.DeepwindGorge.Horde = BGHistory.CharDB.DeepwindGorge.Horde + 1
-        score = BGHistory.CharDB.DeepwindGorge.Horde
-        print("The", winner, "have won", battleground, score "times now!")
-    elseif (battleground == "Deepwind Gorge" and winner == 1) then
-        BGHistory.AccountDB.DeepwindGorge.Alliance = BGHistory.AccountDB.DeepwindGorge.Alliance + 1
-        BGHistory.CharDB.DeepwindGorge.Alliance = BGHistory.CharDB.DeepwindGorge.Alliance + 1
-        score = BGHistory.CharDB.DeepwindGorge.Alliance
-        print("The", winner, "have won", battleground, score "times now!")
+    local score
+
+    if(battleground == "Warsong Gulch") then
+        if(winner == 0) then
+            updateScore(BGHistoryAccountDB.Warsong.Horde, BGHistoryCharDB.Warsong.Horde)
+            score = BGHistoryAccountDB.Warsong.Horde
+            print("The Horde won Warsong", score, "times")
+        elseif (winner == 1)  then
+            updateScore(BGHistoryAccountDB.Warsong.Alliance, BGHistoryCharDB.Warsong.Alliance)
+            score = BGHistoryAccountDB.Warsong.Alliance
+            print("The Alliance won Warsong", score, "times")
+        end
+    elseif (battleground == "Arathi Basin") then
+        if(winner == 0) then
+            updateScore(BGHistoryAccountDB.ArathiBasin.Horde, BGHistoryCharDB.ArathiBasin.Horde)
+            score = BGHistoryAccountDB.ArathiBasin.Horde
+            print("The Horde won Warsong", score, "times")
+        elseif (winner == 1)  then
+            updateScore(BGHistoryAccountDB.ArathiBasin.Alliance, BGHistoryCharDB.ArathiBasin.Alliance)
+            score = BGHistoryAccountDB.ArathiBasin.Alliance
+            print("The Alliance won Warsong", score, "times")
+        end
+    elseif (battleground == "Alterac Valley") then
+        if(winner == 0) then
+            updateScore(BGHistoryAccountDB.AlteracValley.Horde, BGHistoryCharDB.AlteracValley.Horde)
+            score = BGHistoryAccountDB.AlteracValley.Horde
+            print("The Horde won AV", score, "times")
+        elseif (winner == 1)  then
+            updateScore(BGHistoryAccountDB.AlteracValley.Alliance, BGHistoryCharDB.AlteracValley.Alliance)
+            print()
+        end
+    elseif (battleground == "Eye of the Storm") then
+        if(winner == 0) then
+            updateScore(BGHistoryAccountDB.EyeOfTheStorm.Horde, BGHistoryCharDB.EyeOfTheStorm.Horde)
+            score = BGHistoryAccountDB.EyeOfTheStorm.Horde
+            print("The Horde won Eye", score, "times")
+        elseif (winner == 1)  then
+            updateScore(BGHistoryAccountDB.EyeOfTheStorm.Alliance, BGHistoryCharDB.EyeOfTheStorm.Alliance)
+            print()
+        end
+    elseif (battleground == "Isle of Conquest") then
+        if(winner == 0) then
+            updateScore(BGHistoryAccountDB.IsleOfConquest.Horde, BGHistoryCharDB.IsleOfConquest.Horde)
+            score = BGHistoryAccountDB.IsleOfConquest.Horde
+            print("The Horde won IOC", score, "times")
+        elseif (winner == 1)  then
+            updateScore(BGHistoryAccountDB.IsleOfConquest.Alliance, BGHistoryCharDB.IsleOfConquest.Alliance)
+            print()
+        end
+    elseif (battleground == "The Battle for Gilneas") then
+        if(winner == 0) then
+            updateScore(BGHistoryAccountDB.BattleForGilneas.Horde, BGHistoryCharDB.BattleForGilneas.Horde)
+            score = BGHistoryAccountDB.BattleForGilneas.Horde
+            print("The Horde won Gilneas", score, "times")
+        elseif (winner == 1)  then
+            updateScore(BGHistoryAccountDB.BattleForGilneas.Alliance, BGHistoryCharDB.BattleForGilneas.Alliance)
+            print()
+        end
+    elseif (battleground == "Battle for Wintergrasp") then
+        if(winner == 0) then
+            updateScore(BGHistoryAccountDB.BattleForWintergrasp.Horde, BGHistoryCharDB.BattleForWintergrasp.Horde)
+            score = BGHistoryAccountDB.BattleForWintergrasp.Horde
+            print("The Horde won wintergrap", score, "times")
+        elseif (winner == 1)  then
+            updateScore(BGHistoryAccountDB.BattleForWintergrasp.Alliance, BGHistoryCharDB.BattleForWintergrasp.Alliance)
+            print()
+        end
+    elseif (battleground == "Ashran") then
+        if(winner == 0) then
+            updateScore(BGHistoryAccountDB.Ashran.Horde, BGHistoryCharDB.Ashran.Horde)
+            print()
+        elseif (winner == 1)  then
+            updateScore(BGHistoryAccountDB.Ashran.Alliance, BGHistoryCharDB.Ashran.Alliance)
+            print()
+        end
+    elseif (battleground == "Twin Peaks") then
+        if(winner == 0) then
+            updateScore(BGHistoryAccountDB.TwinPeaks.Horde, BGHistoryCharDB.TwinPeaks.Horde)
+            print()
+        elseif (winner == 1)  then
+            updateScore(BGHistoryAccountDB.TwinPeaks.Alliance, BGHistoryCharDB.TwinPeaks.Alliance)
+            print()
+        end
+    elseif (battleground == "Silvershard Mines") then
+        if(winner == 0) then
+            updateScore(BGHistoryAccountDB.SilvershardMines.Horde, BGHistoryCharDB.SilvershardMines.Horde)
+            print()
+        elseif (winner == 1)  then
+            updateScore(BGHistoryAccountDB.SilvershardMines.Alliance, BGHistoryCharDB.SilvershardMines.Alliance)
+            print()
+        end
+    elseif (battleground == "Temple of Kotmogu") then
+        if(winner == 0) then
+            updateScore(BGHistoryAccountDB.TempleOfKotmogu.Horde, BGHistoryCharDB.TempleOfKotmogu.Horde)
+            score = BGHistoryAccountDB.TempleOfKotmogu.Horde
+            print("The Horde won Temple of Kotmogu", score, "times")
+        elseif (winner == 1)  then
+            updateScore(BGHistoryAccountDB.TempleOfKotmogu.Alliance, BGHistoryCharDB.TempleOfKotmogu.Alliance)
+            score = BGHistoryAccountDB.TempleOfKotmogu.Alliance + 1
+            print("The Alliance won Temple of Kotmogu", score, "times")
+        end
+    elseif (battleground == "Seething Shore") then
+        if(winner == 0) then
+            updateScore(BGHistoryAccountDB.SeethingShore.Horde, BGHistoryCharDB.SeethingShore.Horde)
+            print()
+        elseif (winner == 1)  then
+            updateScore(BGHistoryAccountDB.SeethingShore.Alliance, BGHistoryCharDB.SeethingShore.Alliance)
+            print()
+        end
+    elseif (battleground == "Deepwind Gorge") then
+        if(winner == 0) then
+            updateScore(BGHistoryAccountDB.DeepwindGorge.Horde, BGHistoryCharDB.DeepwindGorge.Horde)
+            print()
+        elseif (winner == 1)  then
+            updateScore(BGHistoryAccountDB.DeepwindGorge.Alliance, BGHistoryCharDB.DeepwindGorge.Alliance)
+            print()
+        end
     end
 end
 
@@ -180,111 +171,113 @@ frame.eventHandlers = {
     ["ADDON_LOADED"] = function (...)
         local name = ...
         if name == "BGHistory" then
-            BGHistory.loaded = true
-            BGHistory.BGCompleteHandler = {}
-            if (BGHistory.AccountDB == nil) then
-                BGHistory.AccountDB = {}
-                     BGHistory.AccountDB.Warsong = {}
-                        BGHistory.AccountDB.Warsong.Horde = 0
-                        BGHistory.AccountDB.Warsong.Alliance = 0
-                    BGHistory.AccountDB.ArathiBasin = {}
-                        BGHistory.AccountDB.ArathiBasin.Horde = 0
-                        BGHistory.AccountDB.ArathiBasin.Alliance = 0
-                    BGHistory.AccountDB.AlteracValley = {}
-                        BGHistory.AccountDB.AlteracValley.Horde = 0
-                        BGHistory.AccountDB.AlteracValley.Alliance = 0
-                    BGHistory.AccountDB.EyeOfTheStorm = {}
-                        BGHistory.AccountDB.AlteracValley.Horde = 0
-                        BGHistory.AccountDB.AlteracValley.Alliance = 0
-                    BGHistory.AccountDB.IsleOfConquest = {}
-                        BGHistory.AccountDB.IsleOfConquest.Horde = 0
-                        BGHistory.AccountDB.IsleOfConquest.Alliance = 0
-                    BGHistory.AccountDB.BattleForGilneas = {}
-                        BGHistory.AccountDB.BattleForGilneas.Horde = 0
-                        BGHistory.AccountDB.BattleForGilneas.Alliance = 0
-                    BGHistory.AccountDB.BattleForWintergrasp = {}
-                        BGHistory.AccountDB.BattleForWintergrasp.Horde = 0
-                        BGHistory.AccountDB.BattleForWintergrasp.Alliance = 0
-                    BGHistory.AccountDB.Ashran = {}
-                        BGHistory.AccountDB.Ashran.Horde = 0
-                        BGHistory.AccountDB.Ashran.Alliance = 0
-                    BGHistory.AccountDB.TwinPeaks = {}
-                        BGHistory.AccountDB.TwinPeaks.Horde = 0
-                        BGHistory.AccountDB.TwinPeaks.Alliance = 0
-                    BGHistory.AccountDB.SilvershardMines = {}
-                        BGHistory.AccountDB.SilvershardMines.Horde = 0
-                        BGHistory.AccountDB.SilvershardMines.Alliance = 0
-                    BGHistory.AccountDB.TempleOfKotmogu = {}
-                        BGHistory.AccountDB.TempleOfKotmogu.Horde = 0
-                        BGHistory.AccountDB.TempleOfKotmogu.Alliance = 0
-                    BGHistory.AccountDB.SeethingShore = {}
-                        BGHistory.AccountDB.SeethingShore.Horde = 0
-                        BGHistory.AccountDB.SeethingShore.Alliance = 0
-                    BGHistory.AccountDB.DeepwindGorge = {}
-                        BGHistory.AccountDB.DeepwindGorge.Horde = 0
-                        BGHistory.AccountDB.DeepwindGorge.Alliance = 0
+      
+            if (BGHistoryAccountDB.Warsong == nil) then
+            BGHistoryAccountDB.Warsong = {}
+            BGHistoryAccountDB.ArathiBasin = {}
+            BGHistoryAccountDB.AlteracValley = {}
+            BGHistoryAccountDB.EyeOfTheStorm = {}
+            BGHistoryAccountDB.IsleOfConquest = {}
+            BGHistoryAccountDB.BattleForGilneas = {}
+            BGHistoryAccountDB.BattleForWintergrasp = {}
+            BGHistoryAccountDB.Ashran = {}
+            BGHistoryAccountDB.TwinPeaks = {}
+            BGHistoryAccountDB.SilvershardMines = {}
+            BGHistoryAccountDB.TempleOfKotmogu = {}
+            BGHistoryAccountDB.SeethingShore = {}
+            BGHistoryAccountDB.DeepwindGorge = {}
+            end
+            if(BGHistoryAccountDB.Warsong.Horde == nil) then
+            BGHistoryAccountDB.Warsong.Horde = 0
+                BGHistoryAccountDB.Warsong.Alliance = 0
+                BGHistoryAccountDB.ArathiBasin.Horde = 0
+                BGHistoryAccountDB.ArathiBasin.Alliance = 0
+                BGHistoryAccountDB.AlteracValley.Horde = 0
+                BGHistoryAccountDB.AlteracValley.Alliance = 0
+                BGHistoryAccountDB.EyeOfTheStorm.Horde = 0
+                BGHistoryAccountDB.EyeOfTheStorm.Alliance = 0
+                BGHistoryAccountDB.IsleOfConquest.Horde = 0
+                BGHistoryAccountDB.IsleOfConquest.Alliance = 0
+                BGHistoryAccountDB.BattleForGilneas.Horde = 0
+                BGHistoryAccountDB.BattleForGilneas.Alliance = 0
+                BGHistoryAccountDB.BattleForWintergrasp.Horde = 0
+                BGHistoryAccountDB.BattleForWintergrasp.Alliance = 0
+                BGHistoryAccountDB.Ashran.Horde = 0
+                BGHistoryAccountDB.Ashran.Alliance = 0
+                BGHistoryAccountDB.TwinPeaks.Horde = 0
+                BGHistoryAccountDB.TwinPeaks.Alliance = 0
+                BGHistoryAccountDB.SilvershardMines.Horde = 0
+                BGHistoryAccountDB.SilvershardMines.Alliance = 0
+                BGHistoryAccountDB.TempleOfKotmogu.Horde = 0
+                BGHistoryAccountDB.TempleOfKotmogu.Alliance = 0
+                BGHistoryAccountDB.SeethingShore.Horde = 0
+                BGHistoryAccountDB.SeethingShore.Alliance = 0
+                BGHistoryAccountDB.DeepwindGorge.Horde = 0
+                BGHistoryAccountDB.DeepwindGorge.Alliance = 0
+            end
 
+            if (BGHistoryCharDB.Warsong == nil) then
+            BGHistoryCharDB.Warsong = {}
+            BGHistoryCharDB.ArathiBasin = {}
+            BGHistoryCharDB.AlteracValley = {}
+            BGHistoryCharDB.EyeOfTheStorm = {}
+            BGHistoryCharDB.IsleOfConquest = {}
+            BGHistoryCharDB.BattleForGilneas = {}
+            BGHistoryCharDB.BattleForWintergrasp = {}
+            BGHistoryCharDB.Ashran = {}
+            BGHistoryCharDB.TwinPeaks = {}
+            BGHistoryCharDB.SilvershardMines = {}
+            BGHistoryCharDB.TempleOfKotmogu = {}
+            BGHistoryCharDB.SeethingShore = {}
+            BGHistoryCharDB.DeepwindGorge = {}
             end
-            if (BGHistory.CharDB == nil) then
-                    BGHistory.CharDB = {}
-                    BGHistory.CharDB.Warsong = {}
-                        BGHistory.CharDB.Warsong.Horde = 0
-                        BGHistory.CharDB.Warsong.Alliance = 0
-                    BGHistory.CharDB.ArathiBasin = {}
-                        BGHistory.CharDB.ArathiBasin.Horde = 0
-                        BGHistory.CharDB.ArathiBasin.Alliance = 0
-                    BGHistory.CharDB.AlteracValley = {}
-                        BGHistory.CharDB.AlteracValley.Horde = 0
-                        BGHistory.CharDB.AlteracValley.Alliance = 0
-                    BGHistory.CharDB.EyeOfTheStorm = {}
-                        BGHistory.CharDB.AlteracValley.Horde = 0
-                        BGHistory.CharDB.AlteracValley.Alliance = 0
-                    BGHistory.CharDB.IsleOfConquest = {}
-                        BGHistory.CharDB.IsleOfConquest.Horde = 0
-                        BGHistory.CharDB.IsleOfConquest.Alliance = 0
-                    BGHistory.CharDB.BattleForGilneas = {}
-                        BGHistory.CharDB.BattleForGilneas.Horde = 0
-                        BGHistory.CharDB.BattleForGilneas.Alliance = 0
-                    BGHistory.CharDB.BattleForWintergrasp = {}
-                        BGHistory.CharDB.BattleForWintergrasp.Horde = 0
-                        BGHistory.CharDB.BattleForWintergrasp.Alliance = 0
-                    BGHistory.CharDB.Ashran = {}
-                        BGHistory.CharDB.Ashran.Horde = 0
-                        BGHistory.CharDB.Ashran.Alliance = 0
-                    BGHistory.CharDB.TwinPeaks = {}
-                        BGHistory.CharDB.TwinPeaks.Horde = 0
-                        BGHistory.CharDB.TwinPeaks.Alliance = 0
-                    BGHistory.CharDB.SilvershardMines = {}
-                        BGHistory.CharDB.SilvershardMines.Horde = 0
-                        BGHistory.CharDB.SilvershardMines.Alliance = 0
-                    BGHistory.CharDB.TempleOfKotmogu = {}
-                        BGHistory.CharDB.TempleOfKotmogu.Horde = 0
-                        BGHistory.CharDB.TempleOfKotmogu.Alliance = 0
-                    BGHistory.CharDB.SeethingShore = {}
-                        BGHistory.CharDB.SeethingShore.Horde = 0
-                        BGHistory.CharDB.SeethingShore.Alliance = 0
-                    BGHistory.CharDB.DeepwindGorge = {}
-                        BGHistory.CharDB.DeepwindGorge.Horde = 0
-                        BGHistory.CharDB.DeepwindGorge.Alliance = 0
+                
+            if (BGHistoryCharDB.EyeOfTheStorm.Horde == nil) then
+                BGHistoryCharDB.Warsong.Horde = 0
+                BGHistoryCharDB.Warsong.Alliance = 0
+                BGHistoryCharDB.ArathiBasin.Horde = 0
+                BGHistoryCharDB.ArathiBasin.Alliance = 0
+                BGHistoryCharDB.AlteracValley.Horde = 0
+                BGHistoryCharDB.AlteracValley.Alliance = 0
+                BGHistoryCharDB.AlteracValley.Horde = 0
+                BGHistoryCharDB.AlteracValley.Alliance = 0
+                BGHistoryCharDB.EyeOfTheStorm.Horde = 0
+                BGHistoryCharDB.EyeOfTheStorm.Alliance = 0
+                BGHistoryCharDB.IsleOfConquest.Horde = 0
+                BGHistoryCharDB.IsleOfConquest.Alliance = 0
+                BGHistoryCharDB.BattleForGilneas.Horde = 0
+                BGHistoryCharDB.BattleForGilneas.Alliance = 0
+                BGHistoryCharDB.BattleForWintergrasp.Horde = 0
+                BGHistoryCharDB.BattleForWintergrasp.Alliance = 0
+                BGHistoryCharDB.Ashran.Horde = 0
+                BGHistoryCharDB.Ashran.Alliance = 0
+                BGHistoryCharDB.TwinPeaks.Horde = 0
+                BGHistoryCharDB.TwinPeaks.Alliance = 0
+                BGHistoryCharDB.SilvershardMines.Horde = 0
+                BGHistoryCharDB.SilvershardMines.Alliance = 0
+                BGHistoryCharDB.TempleOfKotmogu.Horde = 0
+                BGHistoryCharDB.TempleOfKotmogu.Alliance = 0
+                BGHistoryCharDB.SeethingShore.Horde = 0
+                BGHistoryCharDB.SeethingShore.Alliance = 0
+                BGHistoryCharDB.DeepwindGorge.Horde = 0
+                BGHistoryCharDB.DeepwindGorge.Alliance = 0
             end
-            
+            BGHistory.loaded = true
             frame:UnregisterEvent("ADDON_LOADED")
         end
     end,
-    ["PLAYER_STARTED_MOVING"] = function () 
-        print(accountDB)
-        print(accountDB.AlteracValley)
-        print("moved")
-        
-    
+
+    ["PLAYER_STARTED_MOVING"] = function ()
+
     end,
+
     ["PVP_MATCH_COMPLETE"] = function (...)
         local battleground = getBattleground()
         local winner, duration = ...
 
         updateDB(battleground, winner)
-
-        eventHandler:handleBGComplete(winner, duration)
+        
+        -- eventHandler:handleBGComplete(winner, duration)
     end
 }
 
@@ -316,7 +309,7 @@ end
 
 SLASH_BGHISTORY1 = "/bghistory"
 SLASH_BGHISTORY2 = "/bgh"
-SlashCmdList["BGHISTORY"] = function(bg) frame:toggle() end
+SlashCmdList["BGHISTORY"] = function() frame:toggle() end
 
 
 -- Addon Events

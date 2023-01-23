@@ -1,0 +1,88 @@
+-- if (BGHistoryAccountDB.Warsong == nil) then
+--     BGHistoryAccountDB.Warsong = {}
+--     BGHistoryAccountDB.ArathiBasin = {}
+--     BGHistoryAccountDB.AlteracValley = {}
+--     BGHistoryAccountDB.EyeOfTheStorm = {}
+--     BGHistoryAccountDB.IsleOfConquest = {}
+--     BGHistoryAccountDB.BattleForGilneas = {}
+--     BGHistoryAccountDB.BattleForWintergrasp = {}
+--     BGHistoryAccountDB.Ashran = {}
+--     BGHistoryAccountDB.TwinPeaks = {}
+--     BGHistoryAccountDB.SilvershardMines = {}
+--     BGHistoryAccountDB.TempleOfKotmogu = {}
+--     BGHistoryAccountDB.SeethingShore = {}
+--     BGHistoryAccountDB.DeepwindGorge = {}
+--   end
+--   if(BGHistoryAccountDB.Warsong.Horde == nil) then
+--     BGHistoryAccountDB.Warsong.Horde = 0
+--         BGHistoryAccountDB.Warsong.Alliance = 0
+--         BGHistoryAccountDB.ArathiBasin.Horde = 0
+--         BGHistoryAccountDB.ArathiBasin.Alliance = 0
+--         BGHistoryAccountDB.AlteracValley.Horde = 0
+--         BGHistoryAccountDB.AlteracValley.Alliance = 0
+--         BGHistoryAccountDB.EyeOfTheStorm.Horde = 0
+--         BGHistoryAccountDB.EyeOfTheStorm.Alliance = 0
+--         BGHistoryAccountDB.IsleOfConquest.Horde = 0
+--         BGHistoryAccountDB.IsleOfConquest.Alliance = 0
+--         BGHistoryAccountDB.BattleForGilneas.Horde = 0
+--         BGHistoryAccountDB.BattleForGilneas.Alliance = 0
+--         BGHistoryAccountDB.BattleForWintergrasp.Horde = 0
+--         BGHistoryAccountDB.BattleForWintergrasp.Alliance = 0
+--         BGHistoryAccountDB.Ashran.Horde = 0
+--         BGHistoryAccountDB.Ashran.Alliance = 0
+--         BGHistoryAccountDB.TwinPeaks.Horde = 0
+--         BGHistoryAccountDB.TwinPeaks.Alliance = 0
+--         BGHistoryAccountDB.SilvershardMines.Horde = 0
+--         BGHistoryAccountDB.SilvershardMines.Alliance = 0
+--         BGHistoryAccountDB.TempleOfKotmogu.Horde = 0
+--         BGHistoryAccountDB.TempleOfKotmogu.Alliance = 0
+--         BGHistoryAccountDB.SeethingShore.Horde = 0
+--         BGHistoryAccountDB.SeethingShore.Alliance = 0
+--         BGHistoryAccountDB.DeepwindGorge.Horde = 0
+--         BGHistoryAccountDB.DeepwindGorge.Alliance = 0
+--   end
+
+--   if (BGHistoryCharDB.Warsong == nil) then
+--     BGHistoryCharDB.Warsong = {}
+--     BGHistoryCharDB.ArathiBasin = {}
+--     BGHistoryCharDB.AlteracValley = {}
+--     BGHistoryCharDB.EyeOfTheStorm = {}
+--     BGHistoryCharDB.IsleOfConquest = {}
+--     BGHistoryCharDB.BattleForGilneas = {}
+--     BGHistoryCharDB.BattleForWintergrasp = {}
+--     BGHistoryCharDB.Ashran = {}
+--     BGHistoryCharDB.TwinPeaks = {}
+--     BGHistoryCharDB.SilvershardMines = {}
+--     BGHistoryCharDB.TempleOfKotmogu = {}
+--     BGHistoryCharDB.SeethingShore = {}
+--     BGHistoryCharDB.DeepwindGorge = {}
+--   end
+        
+--     if (BGHistoryCharDB.Warsong.Horde == nil) then
+--         BGHistoryCharDB.Warsong.Horde = 0
+--         BGHistoryCharDB.Warsong.Alliance = 0
+--         BGHistoryCharDB.ArathiBasin.Horde = 0
+--         BGHistoryCharDB.ArathiBasin.Alliance = 0
+--         BGHistoryCharDB.AlteracValley.Horde = 0
+--         BGHistoryCharDB.AlteracValley.Alliance = 0
+--         BGHistoryCharDB.AlteracValley.Horde = 0
+--         BGHistoryCharDB.AlteracValley.Alliance = 0
+--         BGHistoryCharDB.IsleOfConquest.Horde = 0
+--         BGHistoryCharDB.IsleOfConquest.Alliance = 0
+--         BGHistoryCharDB.BattleForGilneas.Horde = 0
+--         BGHistoryCharDB.BattleForGilneas.Alliance = 0
+--         BGHistoryCharDB.BattleForWintergrasp.Horde = 0
+--         BGHistoryCharDB.BattleForWintergrasp.Alliance = 0
+--         BGHistoryCharDB.Ashran.Horde = 0
+--         BGHistoryCharDB.Ashran.Alliance = 0
+--         BGHistoryCharDB.TwinPeaks.Horde = 0
+--         BGHistoryCharDB.TwinPeaks.Alliance = 0
+--         BGHistoryCharDB.SilvershardMines.Horde = 0
+--         BGHistoryCharDB.SilvershardMines.Alliance = 0
+--         BGHistoryCharDB.TempleOfKotmogu.Horde = 0
+--         BGHistoryCharDB.TempleOfKotmogu.Alliance = 0
+--         BGHistoryCharDB.SeethingShore.Horde = 0
+--         BGHistoryCharDB.SeethingShore.Alliance = 0
+--         BGHistoryCharDB.DeepwindGorge.Horde = 0
+--         BGHistoryCharDB.DeepwindGorge.Alliance = 0
+--     end

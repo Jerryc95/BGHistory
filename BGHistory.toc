@@ -12,7 +12,5 @@ BGHistoryCharDB.lua
 BGCompleteHandler.lua
 MainFrame.lua
 BGFrame.lua
-HistoryFrame.lua
 SummaryFrame.lua
-Main.lua
-
+HistoryFrame.lua

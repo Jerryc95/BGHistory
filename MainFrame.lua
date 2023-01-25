@@ -13,6 +13,7 @@ local function getBattleground()
         mapID = id
     end
     local area = C_Map.GetMapInfo(mapID)
+    print(area.name)
     
     for i = 1 ,13,1 do	
         local name, canEnter, isHoliday, isRandom, battleGroundID, info = GetBattlegroundInfo(i)
@@ -26,129 +27,152 @@ end
 
 
 -- Add to DB
-local function updateScore(accountScore, characterScore)
-    accountScore = accountScore + 1
-    characterScore = characterScore + 1
-end
-
 local function updateDB(battleground, winner)
-    print(battleground)
+    -- print(battleground)
     print(winner)
     local score
 
     if(battleground == "Warsong Gulch") then
         if(winner == 0) then
-            updateScore(BGHistoryAccountDB.Warsong.Horde, BGHistoryCharDB.Warsong.Horde)
+            BGHistoryAccountDB.Warsong.Horde = BGHistoryAccountDB.Warsong.Horde + 1
+            BGHistoryCharDB.Warsong.Horde = BGHistoryCharDB.Warsong.Horde + 1
             score = BGHistoryAccountDB.Warsong.Horde
             print("The Horde won Warsong", score, "times")
         elseif (winner == 1)  then
-            updateScore(BGHistoryAccountDB.Warsong.Alliance, BGHistoryCharDB.Warsong.Alliance)
+            BGHistoryAccountDB.Warsong.Alliance = BGHistoryAccountDB.Warsong.Alliance + 1
+            BGHistoryCharDB.Warsong.Alliance = BGHistoryCharDB.Warsong.Alliance + 1
             score = BGHistoryAccountDB.Warsong.Alliance
             print("The Alliance won Warsong", score, "times")
         end
     elseif (battleground == "Arathi Basin") then
         if(winner == 0) then
-            updateScore(BGHistoryAccountDB.ArathiBasin.Horde, BGHistoryCharDB.ArathiBasin.Horde)
+            BGHistoryAccountDB.ArathiBasin.Horde = BGHistoryAccountDB.ArathiBasin.Horde + 1
+            BGHistoryCharDB.ArathiBasin.Horde = BGHistoryCharDB.ArathiBasin.Horde + 1
             score = BGHistoryAccountDB.ArathiBasin.Horde
             print("The Horde won Warsong", score, "times")
         elseif (winner == 1)  then
-            updateScore(BGHistoryAccountDB.ArathiBasin.Alliance, BGHistoryCharDB.ArathiBasin.Alliance)
+            BGHistoryAccountDB.ArathiBasin.Alliance = BGHistoryAccountDB.ArathiBasin.Alliance + 1
+            BGHistoryCharDB.ArathiBasin.Alliance = BGHistoryCharDB.ArathiBasin.Alliance + 1
             score = BGHistoryAccountDB.ArathiBasin.Alliance
             print("The Alliance won Warsong", score, "times")
         end
     elseif (battleground == "Alterac Valley") then
         if(winner == 0) then
-            updateScore(BGHistoryAccountDB.AlteracValley.Horde, BGHistoryCharDB.AlteracValley.Horde)
+            BGHistoryAccountDB.AlteracValley.Horde = BGHistoryAccountDB.AlteracValley.Horde + 1
+            BGHistoryCharDB.AlteracValley.Horde = BGHistoryCharDB.AlteracValley.Horde + 1
             score = BGHistoryAccountDB.AlteracValley.Horde
             print("The Horde won AV", score, "times")
         elseif (winner == 1)  then
-            updateScore(BGHistoryAccountDB.AlteracValley.Alliance, BGHistoryCharDB.AlteracValley.Alliance)
+            BGHistoryAccountDB.AlteracValley.Alliance = BGHistoryAccountDB.AlteracValley.Alliance + 1
+            BGHistoryCharDB.AlteracValley.Alliance = BGHistoryCharDB.AlteracValley.Alliance + 1
             print()
         end
     elseif (battleground == "Eye of the Storm") then
         if(winner == 0) then
-            updateScore(BGHistoryAccountDB.EyeOfTheStorm.Horde, BGHistoryCharDB.EyeOfTheStorm.Horde)
+            BGHistoryAccountDB.EyeOfTheStorm.Horde = BGHistoryAccountDB.EyeOfTheStorm.Horde + 1
+            BGHistoryCharDB.EyeOfTheStorm.Horde = BGHistoryCharDB.EyeOfTheStorm.Horde + 1
             score = BGHistoryAccountDB.EyeOfTheStorm.Horde
             print("The Horde won Eye", score, "times")
         elseif (winner == 1)  then
-            updateScore(BGHistoryAccountDB.EyeOfTheStorm.Alliance, BGHistoryCharDB.EyeOfTheStorm.Alliance)
+            BGHistoryAccountDB.EyeOfTheStorm.Alliance = BGHistoryAccountDB.EyeOfTheStorm.Alliance + 1
+            BGHistoryCharDB.EyeOfTheStorm.Alliance = BGHistoryCharDB.EyeOfTheStorm.Alliance + 1
             print()
         end
     elseif (battleground == "Isle of Conquest") then
         if(winner == 0) then
-            updateScore(BGHistoryAccountDB.IsleOfConquest.Horde, BGHistoryCharDB.IsleOfConquest.Horde)
+            BGHistoryAccountDB.IsleOfConquest.Horde = BGHistoryAccountDB.IsleOfConquest.Horde + 1
+            BGHistoryCharDB.IsleOfConquest.Horde = BGHistoryCharDB.IsleOfConquest.Horde + 1
             score = BGHistoryAccountDB.IsleOfConquest.Horde
             print("The Horde won IOC", score, "times")
         elseif (winner == 1)  then
-            updateScore(BGHistoryAccountDB.IsleOfConquest.Alliance, BGHistoryCharDB.IsleOfConquest.Alliance)
+            BGHistoryAccountDB.IsleOfConquest.Alliance = BGHistoryAccountDB.IsleOfConquest.Alliance + 1
+            BGHistoryCharDB.IsleOfConquest.Alliance = BGHistoryCharDB.IsleOfConquest.Alliance + 1
             print()
         end
     elseif (battleground == "The Battle for Gilneas") then
         if(winner == 0) then
-            updateScore(BGHistoryAccountDB.BattleForGilneas.Horde, BGHistoryCharDB.BattleForGilneas.Horde)
+            BGHistoryAccountDB.BattleForGilneas.Horde = BGHistoryAccountDB.BattleForGilneas.Horde + 1
+            BGHistoryCharDB.BattleForGilneas.Horde = BGHistoryCharDB.BattleForGilneas.Horde + 1
             score = BGHistoryAccountDB.BattleForGilneas.Horde
             print("The Horde won Gilneas", score, "times")
         elseif (winner == 1)  then
-            updateScore(BGHistoryAccountDB.BattleForGilneas.Alliance, BGHistoryCharDB.BattleForGilneas.Alliance)
+            BGHistoryAccountDB.BattleForGilneas.Alliance = BGHistoryAccountDB.BattleForGilneas.Alliance + 1
+            BGHistoryCharDB.BattleForGilneas.Alliance = BGHistoryCharDB.BattleForGilneas.Alliance + 1
             print()
         end
     elseif (battleground == "Battle for Wintergrasp") then
         if(winner == 0) then
-            updateScore(BGHistoryAccountDB.BattleForWintergrasp.Horde, BGHistoryCharDB.BattleForWintergrasp.Horde)
+            BGHistoryAccountDB.BattleForWintergrasp.Horde = BGHistoryAccountDB.BattleForWintergrasp.Horde + 1
+            BGHistoryCharDB.BattleForWintergrasp.Horde = BGHistoryCharDB.BattleForWintergrasp.Horde + 1
             score = BGHistoryAccountDB.BattleForWintergrasp.Horde
-            print("The Horde won wintergrap", score, "times")
+            print("The Horde won wintergrasp", score, "times")
         elseif (winner == 1)  then
-            updateScore(BGHistoryAccountDB.BattleForWintergrasp.Alliance, BGHistoryCharDB.BattleForWintergrasp.Alliance)
+            BGHistoryAccountDB.BattleForGilneas.Alliance = BGHistoryAccountDB.BattleForGilneas.Alliance + 1
+            BGHistoryCharDB.BattleForGilneas.Alliance = BGHistoryCharDB.BattleForGilneas.Alliance + 1
             print()
         end
     elseif (battleground == "Ashran") then
         if(winner == 0) then
-            updateScore(BGHistoryAccountDB.Ashran.Horde, BGHistoryCharDB.Ashran.Horde)
+            BGHistoryAccountDB.Ashran.Horde = BGHistoryAccountDB.Ashran.Horde + 1
+            BGHistoryCharDB.Ashran.Horde = BGHistoryCharDB.Ashran.Horde + 1
             print()
         elseif (winner == 1)  then
-            updateScore(BGHistoryAccountDB.Ashran.Alliance, BGHistoryCharDB.Ashran.Alliance)
+            BGHistoryAccountDB.Ashran.Alliance = BGHistoryAccountDB.Ashran.Alliance + 1
+            BGHistoryCharDB.Ashran.Alliance = BGHistoryCharDB.Ashran.Alliance + 1
             print()
         end
     elseif (battleground == "Twin Peaks") then
         if(winner == 0) then
-            updateScore(BGHistoryAccountDB.TwinPeaks.Horde, BGHistoryCharDB.TwinPeaks.Horde)
+            BGHistoryAccountDB.TwinPeaks.Horde = BGHistoryAccountDB.TwinPeaks.Horde + 1
+            BGHistoryCharDB.TwinPeaks.Horde = BGHistoryCharDB.TwinPeaks.Horde + 1
             print()
         elseif (winner == 1)  then
-            updateScore(BGHistoryAccountDB.TwinPeaks.Alliance, BGHistoryCharDB.TwinPeaks.Alliance)
+            BGHistoryAccountDB.TwinPeaks.Alliance = BGHistoryAccountDB.TwinPeaks.Alliance + 1
+            BGHistoryCharDB.TwinPeaks.Alliance = BGHistoryCharDB.TwinPeaks.Alliance + 1
             print()
         end
     elseif (battleground == "Silvershard Mines") then
         if(winner == 0) then
-            updateScore(BGHistoryAccountDB.SilvershardMines.Horde, BGHistoryCharDB.SilvershardMines.Horde)
+            BGHistoryAccountDB.SilvershardMines.Horde = BGHistoryAccountDB.SilvershardMines.Horde + 1
+            BGHistoryCharDB.SilvershardMines.Horde = BGHistoryCharDB.SilvershardMines.Horde + 1
             print()
         elseif (winner == 1)  then
-            updateScore(BGHistoryAccountDB.SilvershardMines.Alliance, BGHistoryCharDB.SilvershardMines.Alliance)
+            BGHistoryAccountDB.SilvershardMines.Alliance = BGHistoryAccountDB.SilvershardMines.Alliance + 1
+            BGHistoryCharDB.SilvershardMines.Alliance = BGHistoryCharDB.SilvershardMines.Alliance + 1
             print()
         end
     elseif (battleground == "Temple of Kotmogu") then
         if(winner == 0) then
-            updateScore(BGHistoryAccountDB.TempleOfKotmogu.Horde, BGHistoryCharDB.TempleOfKotmogu.Horde)
+            BGHistoryAccountDB.TempleOfKotmogu.Horde = BGHistoryAccountDB.TempleOfKotmogu.Horde + 1
+            BGHistoryCharDB.TempleOfKotmogu.Horde = BGHistoryCharDB.TempleOfKotmogu.Horde + 1
             score = BGHistoryAccountDB.TempleOfKotmogu.Horde
             print("The Horde won Temple of Kotmogu", score, "times")
         elseif (winner == 1)  then
-            updateScore(BGHistoryAccountDB.TempleOfKotmogu.Alliance, BGHistoryCharDB.TempleOfKotmogu.Alliance)
+            BGHistoryAccountDB.TempleOfKotmogu.Alliance = BGHistoryAccountDB.TempleOfKotmogu.Alliance + 1
+            BGHistoryCharDB.TempleOfKotmogu.Alliance = BGHistoryCharDB.TempleOfKotmogu.Alliance + 1
             score = BGHistoryAccountDB.TempleOfKotmogu.Alliance + 1
             print("The Alliance won Temple of Kotmogu", score, "times")
         end
     elseif (battleground == "Seething Shore") then
         if(winner == 0) then
-            updateScore(BGHistoryAccountDB.SeethingShore.Horde, BGHistoryCharDB.SeethingShore.Horde)
-            print()
+            BGHistoryAccountDB.SeethingShore.Horde = BGHistoryAccountDB.SeethingShore.Horde + 1
+            BGHistoryCharDB.SeethingShore.Horde = BGHistoryCharDB.SeethingShore.Horde + 1
+            score = BGHistoryAccountDB.TempleOfKotmogu.Horde + 1
+            print("The Horde won Seething shore", score, "times")
         elseif (winner == 1)  then
-            updateScore(BGHistoryAccountDB.SeethingShore.Alliance, BGHistoryCharDB.SeethingShore.Alliance)
-            print()
+            BGHistoryAccountDB.SeethingShore.Alliance = BGHistoryAccountDB.SeethingShore.Alliance + 1
+            BGHistoryCharDB.SeethingShore.Alliance = BGHistoryCharDB.SeethingShore.Alliance + 1
+            score = BGHistoryAccountDB.TempleOfKotmogu.Alliance + 1
+            print("The Alliance won seeting shore", score, "times")
         end
     elseif (battleground == "Deepwind Gorge") then
         if(winner == 0) then
-            updateScore(BGHistoryAccountDB.DeepwindGorge.Horde, BGHistoryCharDB.DeepwindGorge.Horde)
+            BGHistoryAccountDB.DeepwindGorge.Horde = BGHistoryAccountDB.DeepwindGorge.Horde + 1
+            BGHistoryCharDB.DeepwindGorge.Horde = BGHistoryCharDB.DeepwindGorge.Horde + 1
             print()
         elseif (winner == 1)  then
-            updateScore(BGHistoryAccountDB.DeepwindGorge.Alliance, BGHistoryCharDB.DeepwindGorge.Alliance)
+            BGHistoryAccountDB.DeepwindGorge.Alliance = BGHistoryAccountDB.DeepwindGorge.Alliance + 1
+            BGHistoryCharDB.DeepwindGorge.Alliance = BGHistoryCharDB.DeepwindGorge.Alliance + 1
             print()
         end
     end
@@ -268,7 +292,7 @@ frame.eventHandlers = {
     end,
 
     ["PLAYER_STARTED_MOVING"] = function ()
-
+        -- local battleground = getBattleground()
     end,
 
     ["PVP_MATCH_COMPLETE"] = function (...)

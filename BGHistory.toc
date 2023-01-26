@@ -9,8 +9,10 @@
 BGHistory.lua
 BGHistoryAccountDB.lua
 BGHistoryCharDB.lua
+AddonLoadedHandler.lua
 BGCompleteHandler.lua
+ResetData.lua
 MainFrame.lua
 BGFrame.lua
 SummaryFrame.lua
-HistoryFrame.lua
+DetailFrame.lua

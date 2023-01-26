@@ -115,7 +115,6 @@ for i = 1, 13 do
     offset = offset - 28
     bgListFrame.buttons[i] = CreateFrame("Button", Battlegrounds[i], bgListFrame)
     local button = bgListFrame.buttons[i]
-    -- local button = CreateFrame("Button", Battlegrounds[i], bgListFrame)
     button:SetPoint("CENTER", bgListFrame, 0, offset)
     button:SetWidth(115)
     button:SetHeight(20)

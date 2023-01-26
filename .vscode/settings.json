@@ -43,6 +43,11 @@
         "GameFontDisableSmall",
         "GameTooltip",
         "GameFontNormalSmall",
-        "FONT_COLOR_CODE_CLOSE"
+        "FONT_COLOR_CODE_CLOSE",
+        "KILLS",
+        "DAMAGE",
+        "DONE",
+        "DEATHS",
+        "RESET"
     ]
 }

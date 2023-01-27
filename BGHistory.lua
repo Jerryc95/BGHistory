@@ -16,5 +16,6 @@ BGHistory = {
         charKillingBlows = 0,
         charHonorableKills = 0,
         charDeaths = 0
+
     }
 }

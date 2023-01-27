@@ -28,64 +28,81 @@ local kbText = DetailFrame:CreateFontString(nil, "OVERLAY", "GameTooltipHeaderTe
 kbText:SetPoint("top", -210, -65)
 kbText:SetText("Killing Blows:")
 
-local kbChar = DetailFrame:CreateFontString(nil, "OVERLAY", "GameTooltipHeaderText")
-kbChar:SetPoint("top", 0, -65)
-kbChar:SetText(0)
+KbChar = DetailFrame:CreateFontString(nil, "OVERLAY", "GameTooltipHeaderText")
+KbChar:SetPoint("top", 0, -65)
 
-local kbAccount = DetailFrame:CreateFontString(nil, "OVERLAY", "GameTooltipHeaderText")
-kbAccount:SetPoint("top", 150, -65)
-kbAccount:SetText(0)
+
+KbAccount = DetailFrame:CreateFontString(nil, "OVERLAY", "GameTooltipHeaderText")
+KbAccount:SetPoint("top", 150, -65)
+
 
 -- HONORABLE KILLS
 local hkText = DetailFrame:CreateFontString(nil, "OVERLAY", "GameTooltipHeaderText")
-hkText:SetPoint("top", -205, -95)
+hkText:SetPoint("top", -210, -95)
 hkText:SetText("Honorable Kills:")
 
-local hkChar = DetailFrame:CreateFontString(nil, "OVERLAY", "GameTooltipHeaderText")
-hkChar:SetPoint("top", 0, -95)
-hkChar:SetText(0)
+HkChar = DetailFrame:CreateFontString(nil, "OVERLAY", "GameTooltipHeaderText")
+HkChar:SetPoint("top", 0, -95)
 
-local hkAccount = DetailFrame:CreateFontString(nil, "OVERLAY", "GameTooltipHeaderText")
-hkAccount:SetPoint("top", 150, -95)
-hkAccount:SetText(0)
+
+HkAccount = DetailFrame:CreateFontString(nil, "OVERLAY", "GameTooltipHeaderText")
+HkAccount:SetPoint("top", 150, -95)
+
 
 -- DEATHS
 local deathsText = DetailFrame:CreateFontString(nil, "OVERLAY", "GameTooltipHeaderText")
-deathsText:SetPoint("top", -208, -125)
+deathsText:SetPoint("top", -210, -125)
 deathsText:SetText("Deaths:")
 
-local deathsChar = DetailFrame:CreateFontString(nil, "OVERLAY", "GameTooltipHeaderText")
-deathsChar:SetPoint("top", 0, -125)
-deathsChar:SetText(0)
+DeathsChar = DetailFrame:CreateFontString(nil, "OVERLAY", "GameTooltipHeaderText")
+DeathsChar:SetPoint("top", 0, -125)
 
-local deathsAccount = DetailFrame:CreateFontString(nil, "OVERLAY", "GameTooltipHeaderText")
-deathsAccount:SetPoint("top", 150, -125)
-deathsAccount:SetText(0)
+
+DeathsAccount = DetailFrame:CreateFontString(nil, "OVERLAY", "GameTooltipHeaderText")
+DeathsAccount:SetPoint("top", 150, -125)
+
 
 -- KILL DEATH RATIO
 local kdText = DetailFrame:CreateFontString(nil, "OVERLAY", "GameTooltipHeaderText")
-kdText:SetPoint("top", -209, -155)
+kdText:SetPoint("top", -210, -155)
 kdText:SetText("Kill/Death Ratio:")
 
-local kdChar = DetailFrame:CreateFontString(nil, "OVERLAY", "GameTooltipHeaderText")
-kdChar:SetPoint("top", 0, -155)
-kdChar:SetText(0)
+KdChar = DetailFrame:CreateFontString(nil, "OVERLAY", "GameTooltipHeaderText")
+KdChar:SetPoint("top", 0, -155)
 
--- kills / deaths 
 
-local kdAccount = DetailFrame:CreateFontString(nil, "OVERLAY", "GameTooltipHeaderText")
-kdAccount:SetPoint("top", 150, -155)
-kdAccount:SetText(0)
+KdAccount = DetailFrame:CreateFontString(nil, "OVERLAY", "GameTooltipHeaderText")
+KdAccount:SetPoint("top", 150, -155)
 
--- DAMAGE DONE
--- local ddText = DetailFrame:CreateFontString(nil, "OVERLAY", "GameTooltipHeaderText")
--- ddText:SetPoint("top", -225, -245)
--- deathsText:SetText("Damage Done:")
 
--- local ddChar = DetailFrame:CreateFontString(nil, "OVERLAY", "GameTooltipHeaderText")
--- ddChar:SetPoint("top", 0, -245)
--- deathsChar:SetText(0)
+-- PERCENTS
+local percentText = DetailFrame:CreateFontString(nil, "OVERLAY", "GameTooltipHeaderText")
+percentText:SetPoint("top", -210, -195)
+percentText:SetText("Win Percentage")
+percentText:SetTextColor(1,0.84,0.09,1)
 
--- local ddAccount = DetailFrame:CreateFontString(nil, "OVERLAY", "GameTooltipHeaderText")
--- ddAccount:SetPoint("top", 150, -245)
--- ddAccount:SetText(0)
+local AlliancePercentText = DetailFrame:CreateFontString(nil, "OVERLAY", "GameTooltipHeaderText")
+AlliancePercentText:SetPoint("top", -210, -225)
+AlliancePercentText:SetText("Alliance:")
+AlliancePercentText:SetTextColor(0,0,255,1)
+
+ApChar = DetailFrame:CreateFontString(nil, "OVERLAY", "GameTooltipHeaderText")
+ApChar:SetPoint("top", 0, -225)
+
+
+ApAccount = DetailFrame:CreateFontString(nil, "OVERLAY", "GameTooltipHeaderText")
+ApAccount:SetPoint("top", 150, -225)
+
+
+local HordePercentText = DetailFrame:CreateFontString(nil, "OVERLAY", "GameTooltipHeaderText")
+HordePercentText:SetPoint("top", -210, -255)
+HordePercentText:SetText("Horde:")
+HordePercentText:SetTextColor(255,0,0,1)
+
+HpChar = DetailFrame:CreateFontString(nil, "OVERLAY", "GameTooltipHeaderText")
+HpChar:SetPoint("top", 0, -255)
+
+
+HpAccount = DetailFrame:CreateFontString(nil, "OVERLAY", "GameTooltipHeaderText")
+HpAccount:SetPoint("top", 150, -255)
+

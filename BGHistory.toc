@@ -11,6 +11,7 @@ BGHistoryAccountDB.lua
 BGHistoryCharDB.lua
 AddonLoadedHandler.lua
 BGCompleteHandler.lua
+FrameUpdateHandler.lua
 ResetData.lua
 MainFrame.lua
 BGFrame.lua

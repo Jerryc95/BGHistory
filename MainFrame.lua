@@ -15,7 +15,11 @@ local function getBattleground()
     
     for i = 1 ,13,1 do	
         local name, canEnter, isHoliday, isRandom, battleGroundID, info = GetBattlegroundInfo(i)
+        print(name)
         if(name == area.name) then
+            battlegroundName = name
+            break
+        elseif (area.name == "Wintergrasp") then
             battlegroundName = name
             break
         end
@@ -27,7 +31,6 @@ end
 local frame = UI.mainFrame
 frame:RegisterEvent("ADDON_LOADED")
 frame:RegisterEvent("PVP_MATCH_COMPLETE")
-frame:RegisterEvent("PLAYER_STARTED_MOVING")
 frame:SetSize(800, 500)
 frame:EnableMouse(true)
 frame:SetMovable(true)
@@ -44,11 +47,6 @@ frame.eventHandlers = {
             BGHistory.loaded = true
             frame:UnregisterEvent("ADDON_LOADED")
         end
-    end,
-
-    ["PLAYER_STARTED_MOVING"] = function ()
-        -- local battleground = getBattleground()
-        -- print(battleground)
     end,
 
     ["PVP_MATCH_COMPLETE"] = function (...)
@@ -76,15 +74,6 @@ local close = CreateFrame("Button", nil, frame, "UIPanelButtonTemplate")
 	close:SetScript("OnClick", function ()
 		frame:Hide()
 	end)
-
--- local reset = CreateFrame("Button", nil, frame, "UIPanelButtonTemplate")
---     reset:SetPoint("BOTTOMRIGHT", -150,10)
---     reset:SetFrameLevel(reset:GetFrameLevel() + 1)
---     reset:SetSize(100, 20)
---     reset:SetText(RESET)
---     reset:SetScript("OnClick", function ()
--- 		ResetData()
--- 	end)
 
 -- Slash commands
 function frame:toggle()

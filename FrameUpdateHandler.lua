@@ -16,12 +16,13 @@ function Handler:UpdateFrame()
     DeathsAccount:SetText(BGHistory.battlegroundStats.accountDeaths)
 
     local function verifyKD (arg1, arg2)
-       if (arg1 == 0 and arg2 == 0) then
+        if (arg1 == 0 and arg2 == 0) then
             return 0
-       else
+        elseif( arg1 > 0 and arg2 == 0) then
+            return arg1
+        end
         local kdFormatted = string.format("%.2f", arg1 / arg2)
         return kdFormatted
-       end
     end
 
     local function verifyPercent(arg1, arg2)

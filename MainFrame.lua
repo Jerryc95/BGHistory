@@ -11,11 +11,9 @@ local function getBattleground()
         mapID = id
     end
     local area = C_Map.GetMapInfo(mapID)
-    print(area.name)
     
     for i = 1 ,13,1 do	
         local name, canEnter, isHoliday, isRandom, battleGroundID, info = GetBattlegroundInfo(i)
-        print(name)
         if(name == area.name) then
             battlegroundName = name
             break
